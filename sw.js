@@ -1,10 +1,10 @@
-const CACHE_NAME = 'krya-store-v1';
+const CACHE_NAME = 'krya-store-v2';
 const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/style.css',
-  '/script.js',
-  '/manifest.json'
+  '/krya-store/',
+  '/krya-store/index.html',
+  '/krya-store/style.css',
+  '/krya-store/script.js',
+  '/krya-store/manifest.json'
 ];
 
 self.addEventListener('install', (e) => {
