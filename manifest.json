@@ -2,7 +2,7 @@
   "name": "KRYA Store",
   "short_name": "KRYA",
   "description": "Premium Digital Store by KRYA",
-  "start_url": "/index.html",
+  "start_url": "/krya-store/index.html",
   "display": "standalone",
   "background_color": "#00503D",
   "theme_color": "#00503D",
