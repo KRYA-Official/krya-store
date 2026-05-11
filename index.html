@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KRYA Store - Premium Shopping</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00503D">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">KRYA <span>Store</span></div>
+        <div class="header-actions">
+            <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+            <div class="cart-icon" onclick="switchTab('cart')">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-badge">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main id="app-container">
+        
+        <section id="home" class="tab-content active">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" placeholder="Search products...">
+            </div>
+            
+            <div class="categories">
+                <button class="cat-btn active" data-cat="All">All</button>
+                <button class="cat-btn" data-cat="Deals">Deals</button>
+                <button class="cat-btn" data-cat="Mobile">Mobile</button>
+                <button class="cat-btn" data-cat="Electronics">Electronics</button>
+                <button class="cat-btn" data-cat="Grocery">Grocery</button>
+            </div>
+
+            <div id="product-grid" class="product-grid"></div>
+            <div id="empty-state" class="hidden" style="text-align: center; padding: 50px 20px;">
+                <i class="fas fa-box-open" style="font-size: 3em; color: #ccc; margin-bottom: 10px;"></i>
+                <p>No products found.</p>
+            </div>
+        </section>
+
+        <section id="cart" class="tab-content">
+            <h2 class="section-title">My Cart</h2>
+            <div id="cart-items"></div>
+            
+            <div id="cart-summary" class="hidden">
+                <div class="summary-row"><span>Subtotal</span> <span id="subtotal">₹0</span></div>
+                <div class="summary-row"><span>Delivery Fee</span> <span>₹40</span></div>
+                <div class="summary-row"><span>Tax (5%)</span> <span id="tax-amount">₹0</span></div>
+                <hr>
+                <div class="summary-row total"><span>Grand Total</span> <span id="grand-total">₹0</span></div>
+                <button id="checkout-btn" class="primary-btn full-width mt-20">Secure Checkout</button>
+            </div>
+            <div id="empty-cart-msg" style="text-align: center; padding: 50px 20px;">
+                <i class="fas fa-shopping-basket" style="font-size: 3em; color: #ccc; margin-bottom: 10px;"></i>
+                <p>Your cart is empty.</p>
+            </div>
+        </section>
+
+        <section id="orders" class="tab-content">
+            <h2 class="section-title">Order History</h2>
+            <div id="orders-list"></div>
+        </section>
+
+        <section id="profile" class="tab-content">
+            <h2 class="section-title">My Profile</h2>
+            <form id="profile-form" class="glass-card">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="user-name" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="user-email" required placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Delivery Address</label>
+                    <textarea id="user-address" required placeholder="धोबनी चौक, बांका, बिहार" rows="3"></textarea>
+                </div>
+                <button type="submit" class="primary-btn full-width">Save Profile</button>
+            </form>
+        </section>
+
+    </main>
+
+    <nav class="bottom-nav">
+        <div class="nav-item active" data-tab="home"><i class="fas fa-home"></i><span>Home</span></div>
+        <div class="nav-item" data-tab="cart"><i class="fas fa-shopping-bag"></i><span>Cart</span></div>
+        <div class="nav-item" data-tab="orders"><i class="fas fa-box"></i><span>Orders</span></div>
+        <div class="nav-item" data-tab="profile"><i class="fas fa-user"></i><span>Profile</span></div>
+    </nav>
+
+    <div id="quick-view-modal" class="modal">
+        <div class="modal-content glass-modal">
+            <span class="close-modal">&times;</span>
+            <img id="modal-img" src="" alt="Product">
+            <h2 id="modal-title">Title</h2>
+            <p id="modal-desc" class="text-muted">Description</p>
+            <h3 id="modal-price" class="price mt-10">₹0</h3>
+            <button id="modal-add-btn" class="primary-btn full-width mt-20">Add to Cart</button>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+      </html>
+
